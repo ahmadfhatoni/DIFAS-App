@@ -115,7 +115,7 @@
                         </div>
 
                         <div class="text-end mt-3">
-                            <a href="#" class="btn btn-secondary fw-semibold">Batalkan</a>                                
+                            <button type="reset" class="btn btn-secondary fw-semibold">Batalkan</button>                           
                             <button type="submit" class="btn btn-primary fw-semibold">Simpan</button>
                         </div>
                     </form>
