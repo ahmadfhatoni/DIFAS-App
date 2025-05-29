@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use App\Models\User;
@@ -32,9 +33,19 @@ class LoginController extends Controller
      * Tampilkan form login.
      *
      * @return \Illuminate\View\View
-     */
-    public function showLoginForm(): View
+     
+    *public function showLoginForm(): View
+    *{
+    *    return view('auth.login');
+    *}
+    */
+    public function showLoginForm(Request $request)
     {
+        // Cek apakah datang karena session expired
+        if ($request->session()->has('session_expired')) {
+            Session::flash('error', 'Sesi Anda telah berakhir. Silakan login kembali.');
+        }
+
         return view('auth.login');
     }
 

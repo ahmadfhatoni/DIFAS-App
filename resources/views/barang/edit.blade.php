@@ -83,8 +83,8 @@
 
                 <!-- Tombol Submit dan Kembali -->
                 <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-primary mb-3 fw-semibold">Update</button>
                     <a href="{{ route('barang.index') }}" class="btn btn-secondary mb-3 fw-semibold">Kembali</a>
+                    <button type="submit" class="btn btn-primary mb-3 fw-semibold">Update</button>
                 </div>
             </form>
         </div>

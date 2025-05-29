@@ -16,4 +16,12 @@ class Authenticate
 
         return $next($request);
     }
+    
+    protected function redirectTo($request)
+    {
+        if (! $request->expectsJson()) {
+            // Kirim flag session_expired untuk ditangani oleh LoginController
+            return route('login', ['session_expired' => true]);
+        }
+    }
 }

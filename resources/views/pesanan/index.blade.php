@@ -57,7 +57,7 @@
                             <td>Rp {{ number_format($pesanan->total_dari_detail, 0, ',', '.') }}</td>
                             <td>
                                 @if($pesanan->status === 'Belum Selesai')
-                                    <button class="btn btn-primary fw-semibold" data-bs-toggle="modal" data-bs-target="#modalKonfirmasi" data-id="{{ $pesanan->id }}">
+                                    <button class="btn btn-primary fw-semibold px-3 text-center" data-bs-toggle="modal" data-bs-target="#modalKonfirmasi" data-id="{{ $pesanan->id }}">
                                         Selesai / Batalkan
                                     </button>
                                 @elseif($pesanan->status === 'Selesai')
@@ -72,7 +72,11 @@
                             </td>
 
                             <td>
-                                <a href="{{ route('invoice.show', $pesanan->id) }}" class="btn btn-primary fw-semibold">Invoice</a>
+                                @if($pesanan->status === 'Dibatalkan')
+                                    <button class="btn btn-danger fw-semibold disabled" style="width: 100px;">Invoice</button>
+                                @else
+                                    <a href="{{ route('invoice.show', $pesanan->id) }}" class="btn btn-primary fw-semibold" style="width: 100px;">Invoice</a>
+                                @endif
                             </td>
                         </tr>
                     @empty

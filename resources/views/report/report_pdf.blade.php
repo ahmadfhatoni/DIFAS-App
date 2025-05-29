@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Report Penyewaan</title>
+    <title>Report Pesanan</title>
     <style>
         body {
             font-family: Arial, sans-serif;

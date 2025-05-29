@@ -61,6 +61,12 @@
             </div>
         @endif
 
+        @if (session('error'))
+            <div class="alert alert-warning" id="flash-message">
+                {{ session('error') }}
+            </div>
+        @endif
+            
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul class="mb-0">

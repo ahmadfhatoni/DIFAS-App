@@ -54,7 +54,7 @@
         }
 
         .btn-secondary:hover {
-            background-color: #6b6c9c;
+            background-color: #06097a;
             color: white;
         }
 
@@ -64,7 +64,7 @@
         }
 
         .btn-sidebar:hover {
-            background-color: #6b6c9c;
+            background-color: #06097a;
             color: white;
         }
 
