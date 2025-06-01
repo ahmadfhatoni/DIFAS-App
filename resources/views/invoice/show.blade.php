@@ -7,7 +7,7 @@
     <div class="bg-primary card p-4 position-relative" style="border-radius: 15px; width: 100%;">
 
         <div class="text-center mb-4">
-            <h4 class="text-white fw-bold m-0">DATA DETAIL PESANAN</h4>
+            <h4 class="text-white fw-bold m-0">DETAIL PESANAN</h4>
         </div>
 
         <div class="bg-light text-dark p-4 rounded">
@@ -97,8 +97,8 @@
 
         {{-- Tombol Cetak --}}
         <div class="text-center mt-3">
-            <a href="{{ route('pesanan.index') }}" class="btn btn-secondary mb-3 fw-bold">Kembali</a>
             <a href="{{ route('invoice.cetak', $pesanan->id) }}" class="btn btn-primary mb-3 fw-semibold" target="_blank">Cetak</a>
+            <a href="{{ route('pesanan.index') }}" class="btn btn-secondary mb-3 fw-bold">Kembali</a>
         </div>
 
     </div>

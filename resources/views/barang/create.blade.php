@@ -71,8 +71,9 @@
                     <input type="number" name="stok" class="form-control" value="{{ old('stok') }}" min="1" required>
                 </div>
 
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary mb-3 fw-semibold">Simpan</button>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary fw-semibold">Simpan</button>
+                    <button type="reset" class="btn btn-secondary fw-semibold">Batalkan</button>                           
                 </div>
             </form>
         </div>

@@ -111,11 +111,11 @@
                     <p>Pesanan akan ditandai sebagai <strong>Selesai</strong> atau <strong>Batalkan</strong> pesanan ini</p>
                 </div>
                 <div class="modal-footer d-flex justify-content-center gap-2">
-                    <button type="button" class="btn btn-danger fw-semibold px-4" style="flex: 1;" onclick="submitStatus('Dibatalkan')">
-                        Batalkan
-                    </button>
                     <button type="button" class="btn btn-primary fw-semibold px-4" style="flex: 1;" onclick="submitStatus('Selesai')">
                         Selesai
+                    </button>
+                    <button type="button" class="btn btn-danger fw-semibold px-4" style="flex: 1;" onclick="submitStatus('Dibatalkan')">
+                        Batalkan
                     </button>
                 </div>
             </div>

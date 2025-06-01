@@ -102,8 +102,8 @@
                     <p>Apakah Anda yakin ingin menghapus barang ini? Tindakan ini tidak dapat dibatalkan.</p>
                 </div>
                 <div class="modal-footer d-flex justify-content-center gap-2">
-                    <button type="button" class="btn btn-primary fw-semibold px-4" style="flex: 1;" data-bs-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-danger fw-semibold px-4" style="flex: 1;">Hapus</button>
+                    <button type="button" class="btn btn-primary fw-semibold px-4" style="flex: 1;" data-bs-dismiss="modal">Batal</button>
                 </div>
             </div>
         </form>

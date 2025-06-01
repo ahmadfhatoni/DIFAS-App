@@ -45,13 +45,12 @@
         .btn-primary:hover {
             background-color: white;
             color: #090C9B;
-            border: 1px solid #06097a;
         }
 
         .btn-secondary {
             background-color: white;
             color: #090C9B;
-            border: 0px solid #090C9B;
+            border: 1px solid white;
         }
 
         .btn-secondary:hover {

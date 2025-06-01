@@ -11,7 +11,7 @@
                 
                 <!-- Judul -->
                 <div class="flex-grow-1">
-                    <h4 class="text-white fw-bold m-0">REPORT PESANAN</h4>
+                    <h4 class="text-white fw-bold m-0">REPORT PENYEWAAN</h4>
                 </div>
 
                 <!-- Input tanggal mulai dan akhir -->

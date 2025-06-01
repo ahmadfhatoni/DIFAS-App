@@ -81,10 +81,9 @@
                     <input type="number" name="stok" class="form-control" min="1" value="{{ old('stok', $barang->stok) }}" required>
                 </div>
 
-                <!-- Tombol Submit dan Kembali -->
                 <div class="text-center mt-4">
-                    <a href="{{ route('barang.index') }}" class="btn btn-secondary mb-3 fw-semibold">Kembali</a>
-                    <button type="submit" class="btn btn-primary mb-3 fw-semibold">Update</button>
+                    <button type="submit" class="btn btn-primary mb-3 fw-semibold">Simpan Perubahan</button>
+                    <a href="{{ route('barang.index') }}" class="btn btn-secondary mb-3 fw-semibold">Batalkan</a>
                 </div>
             </form>
         </div>

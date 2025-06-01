@@ -47,8 +47,8 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="{{ route('dashboard') }}" class="btn btn-secondary fw-semibold">Kembali</a>
                             <button type="submit" class="btn btn-primary fw-semibold">Ubah Password</button>
+                            <a href="{{ route('dashboard') }}" class="btn btn-secondary fw-semibold">Kembali</a>
                         </div>
                     </form>
                 </div>

@@ -114,9 +114,9 @@
                             <div>Total Harga: <span id="total-harga">0</span></div>
                         </div>
 
-                        <div class="text-end mt-3">
-                            <button type="reset" class="btn btn-secondary fw-semibold">Batalkan</button>                           
+                        <div class="text-center mt-3">
                             <button type="submit" class="btn btn-primary fw-semibold">Simpan</button>
+                            <button type="reset" class="btn btn-secondary fw-semibold">Batalkan</button>                           
                         </div>
                     </form>
                 </div>
