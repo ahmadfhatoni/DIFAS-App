@@ -17,7 +17,7 @@
             <a class="btn btn-sidebar mb-3 w-100 fw-semibold" href="{{ route('pesanan.index') }}">Data Pesanan</a>
         </li>
         <li class="nav-item">
-            <a class="btn btn-sidebar mb-3 w-100 fw-semibold" href="{{ route('report.index') }}">Report Pesanan</a>
+            <a class="btn btn-sidebar mb-3 w-100 fw-semibold" href="{{ route('report.index') }}">Report Penyewaan</a>
         </li>
     </ul>
 </div>
