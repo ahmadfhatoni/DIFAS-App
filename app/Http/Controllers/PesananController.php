@@ -168,6 +168,8 @@ class PesananController extends Controller
             $query->whereDate('tanggal_acara', '<=', $request->tanggal_akhir);
         }
 
+        // Ambil data pesanan beserta detailnya
+        $query->where('status', 'Selesai');
         $pesanan = $query->with('details')->latest()->get();
 
         $pdf = Pdf::loadView('report.report_pdf', [
