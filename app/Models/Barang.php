@@ -13,12 +13,17 @@ class Barang extends Model
     protected $fillable = [
         'foto', 
         'nama', 
-        'kategori',
+        'kategori_id',
         'harga_sewa', 
         'stok'
     ];
     public $incrementing = false; // karena id akan manual
     protected $keyType = 'string'; // jika bukan integer
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id');
+    }
 
     public function detailPesanans()
     {

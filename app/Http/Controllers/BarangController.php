@@ -12,7 +12,7 @@ class BarangController extends Controller
         $validated = $request->validate([
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'nama' => 'required|string|max:255',
-            'kategori' => 'required|string',
+            'kategori_id' => 'required|exists:kategori,id',
             'harga_sewa' => 'required|numeric|min:1',
             'stok' => 'required|integer|min:1',
         ],[ 
@@ -64,7 +64,7 @@ class BarangController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
-            'kategori' => 'required|string',
+            'kategori_id' => 'required|exists:kategori,id',
             'harga_sewa' => 'required|numeric|min:1',
             'stok' => 'required|integer|min:1',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',

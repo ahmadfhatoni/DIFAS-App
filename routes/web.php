@@ -4,10 +4,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ChangePasswordController;
+use App\Http\Middleware\OwnerOnly;
 
 
 // Redirect root ke halaman login
@@ -30,8 +33,6 @@ Route::middleware('guest')->group(function() {
 // Logout (hanya untuk user yang sudah login)
 Route::middleware('auth')->post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Nonaktifkan pendaftaran user baru
-Auth::routes(['register' => false]);
 
 // --------------------
 // PROTECTED ROUTES
@@ -39,7 +40,20 @@ Auth::routes(['register' => false]);
 Route::middleware(['auth'])->group(function () {
     //DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // CREATE USER
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
+    Route::post('/register', [RegisterController::class, 'register'])->name('create');
      
+    Route::prefix('kategori')->name('kategori.')->group(function () {
+        Route::get('/', [KategoriController::class, 'index'])->name('index');
+        Route::get('/tambah', [KategoriController::class, 'create'])->name('tambah');
+        Route::post('/', [KategoriController::class, 'store'])->name('store');
+        Route::get('/{id}/edit', [KategoriController::class, 'edit'])->name('edit');
+        Route::put('/{id}', [KategoriController::class, 'update'])->name('update');
+        Route::delete('/{id}', [KategoriController::class, 'destroy'])->name('destroy');
+    });
+
     //BARANG
     //Input Barang
     Route::get('/barang/tambah', [BarangController::class, 'create'])->name('barang.tambah');

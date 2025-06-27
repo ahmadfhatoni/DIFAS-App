@@ -48,17 +48,19 @@
 
                 <div class="mb-3">
                     <label class="form-label">Kategori Barang</label>
+                    @php
+                        $kategoriList = \App\Models\Kategori::all();
+                    @endphp
+
                     <select name="kategori" class="form-select" required>
                         <option value="">-- Pilih Kategori --</option>
-                        @php
-                            $kategoriList = ['Tenda ', 'Kursi', 'Meja', 'Taplak Meja', 'Panggung', 'Soundsystem'];
-                        @endphp
                         @foreach ($kategoriList as $kategori)
-                            <option value="{{ $kategori }}" {{ old('kategori') == $kategori ? 'selected' : '' }}>
-                                {{ $kategori }}
+                            <option value="{{ $kategori->nama }}" {{ old('kategori') == $kategori->nama ? 'selected' : '' }}>
+                                {{ $kategori->nama }}
                             </option>
                         @endforeach
                     </select>
+
                 </div>
 
                 <div class="mb-3">

@@ -21,6 +21,7 @@ class ChangePasswordController extends Controller
             'new_password' => 'required|min:8|confirmed',
         ]);
 
+        /** @var \App\Models\User $user */
         $user = Auth::user();
 
         // Cek apakah password lama cocok
@@ -29,7 +30,8 @@ class ChangePasswordController extends Controller
         }
 
         // Update password
-        $user->password = $request->new_password;
+        //$user->password = $request->new_password;
+        $user->password = Hash::make($request->new_password);
         $user->save();
 
         //return redirect()->route('password.change')->with('success', 'Password berhasil diubah.');

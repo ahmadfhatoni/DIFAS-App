@@ -101,8 +101,18 @@ class LoginController extends Controller
 
     // Atau jika pakai method
     protected function authenticated(Request $request, $user)
-    {
-        // Pastikan tidak redirect ke reset password
-        return redirect()->intended('/dashboard');
+{
+    if ($user->role === 'owner') {
+        return redirect()->route('dashboard'); // atau route khusus owner
+    } elseif ($user->role === 'admin') {
+        return redirect()->route('dashboard');
     }
+
+    // fallback jika role tidak dikenali
+    Auth::logout();
+    return redirect()->route('login')->withErrors([
+        'email' => 'Akun tidak memiliki hak akses yang valid.',
+    ]);
+}
+
 }

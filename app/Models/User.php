@@ -2,20 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Auth\Passwords\CanResetPassword;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, CanResetPassword;
 
     protected $table = 'users';
-    protected $fillable = ['email', 'password'];
-    public $timestamps = false; // jika tabel akun tidak memiliki kolom created_at dan updated_at
 
+    protected $fillable = [
+        'name',       // Tambahkan jika ada
+        'email', 
+        'password',
+        'role'        // Jika pakai role-based access
+    ];
 
     protected $hidden = [
         'password',
@@ -26,5 +30,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
 }
