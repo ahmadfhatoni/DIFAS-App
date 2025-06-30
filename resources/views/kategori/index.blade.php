@@ -1,23 +1,19 @@
 @extends('layouts.app')
 
-@section('title', 'Data Kategori')
+@section('title', 'List Data Kategori')
 
 @section('content')
 <div class="main-wrapper justify-content-center"> 
     <div class="bg-primary card p-4 position-relative" style="border-radius: 15px; width: 100%;">
-
         <div class="text-center mb-4">
-            <h4 class="text-white fw-bold m-0">FORM TAMBAH KATEGORI</h4>
+            <h4 class="text-white fw-bold m-0">DATA KATEGORI</h4>
         </div>
-        <!-- Alert Success -->
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-
-        <!-- Tabel kategori -->
         <div class="table-responsive">
             <table class="table table-bordered table-striped text-center align-middle bg-white">
                 <thead class="table-primary">
@@ -34,7 +30,6 @@
                             <td>{{ $kat->nama }}</td>
                             <td>
                                 <a href="{{ route('kategori.edit', $kat->id) }}" class="btn btn-sm btn-primary fw-semibold mb-1">Edit</a>
-
                                 <button type="button" class="btn btn-sm btn-danger fw-semibold mb-1"
                                     data-bs-toggle="modal"
                                     data-bs-target="#modalHapusKategori"
@@ -51,9 +46,8 @@
                 </tbody>
             </table>
         </div>
-        <!-- Tombol tambah -->
         <div class="mt-4 text-center">
-            <a href="{{ route('kategori.tambah') }}" class="btn btn-primary mb-3 fw-semibold">Tambah Kategori</a>
+            <a href="{{ route('kategori.tambah') }}" class="btn btn-sidebar fw-semibold">Tambah Kategori</a>
         </div>
     </div>
 </div>

@@ -9,21 +9,26 @@
             <div class="text-center mb-4">
                 <h4 class="text-white fw-bold m-0">BUAT AKUN BARU</h4>
             </div>
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Data tidak bisa disimpan!</strong>
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class="row justify-content-center">
                 <div class="col-md-0">
                     <div class="card p-4 bg-secondary">
-                        @if (session('success'))
-                            <div class="alert alert-success">{{ session('success') }}</div>
-                        @endif
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul class="mb-0">
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                         <form method="POST" action="{{ route('create') }}">
                             @csrf
                             <div class="mb-3">
@@ -70,8 +75,8 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary fw-semibold">Buat Akun</button>
+                            <div class="text-center mt-3">
+                                <button type="submit" class="btn btn-primary fw-semibold me-2">Buat Akun</button>
                                 <a href="{{ route('dashboard') }}" class="btn btn-secondary fw-semibold">Kembali</a>
                             </div>
                         </form>

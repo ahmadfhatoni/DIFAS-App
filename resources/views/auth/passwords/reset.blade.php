@@ -27,12 +27,16 @@
     }
 
     .btn-primary {
-        background-color: #090C9B;
-        border: 1px solid #090C9B;
+        background-color: #3066BE;
+        border: 1px solid #3066BE;
+        transition: all 0.3s ease;
     }
 
     .btn-primary:hover {
-        background-color: #06097a;
+        background-color: #1e4a8a;
+        border: 1px solid #1e4a8a;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(48, 102, 190, 0.3);
     }
 
     .alert {

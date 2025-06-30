@@ -3,22 +3,25 @@
 
 @section('content')
 <div class="main-wrapper justify-content-center"> 
-    @if(session('success'))
-        <div class="alert alert-success mb-3">
-            {{ session('success') }}
+    <div class="bg-primary card p-4 position-relative" style="border-radius: 15px; width: 100%;">
+        <div class="text-center mb-4">
+            <h4 class="text-white fw-bold m-0">LIST DATA PESANAN</h4>
         </div>
-    @elseif(session('error'))
-        <div class="alert alert-danger mb-3">
-            {{ session('error') }}
-        </div>
-    @endif
-
-    <div class="card p-4" style="border-radius: 15px; background-color: #3066BE; width: 100%;">
-        <!-- Filter & Search -->
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        @if (session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <form method="GET" action="{{ route('pesanan.index') }}">
             <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
                 <div class="flex-grow-1">
-                    <h4 class="text-white fw-bold m-0">LIST DATA PESANAN</h4>
                 </div>
                 <div class="d-flex gap-2 flex-wrap">
                     <input type="date" name="tanggal_mulai" value="{{ request('tanggal_mulai') }}" class="form-control" style="width: 150px;">
@@ -27,13 +30,11 @@
                 </div>
                 <div class="d-flex gap-2" style="width: 300px;">
                     <input type="text" name="search" value="{{ request('search') }}" class="form-control" placeholder="Cari nama pemesan">
-                    <button class="btn btn-primary fw-semibold" type="submit">Cari</button>
+                    <button class="btn btn-sidebar fw-semibold" type="submit">Cari</button>
                     <a href="{{ route('pesanan.index') }}" class="btn btn-secondary fw-semibold">Reset</a>
                 </div>
             </div>
         </form>
-
-        <!-- Tabel -->
         <div class="table-responsive">
             <table class="table table-bordered table-striped text-center align-middle bg-white">
                 <thead class="table-primary" style="position: sticky; top: 0;">
@@ -70,7 +71,6 @@
                                     </span>
                                 @endif
                             </td>
-
                             <td>
                                 @if($pesanan->status === 'Dibatalkan')
                                     <button class="btn btn-danger fw-semibold disabled" style="width: 100px;">Invoice</button>
@@ -81,16 +81,14 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7">Belum ada data pesanan.</td>
+                            <td colspan="7" class="text-center text-muted">Belum ada data pesanan.</td>
                         </tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
-
-        <!-- Tombol Tambah -->
         <div class="mt-4 text-center">
-            <a href="{{ route('pesanan.tambah') }}" class="btn btn-primary mb-3 fw-semibold">Tambah Pesanan</a>
+            <a href="{{ route('pesanan.tambah') }}" class="btn btn-sidebar fw-semibold">Tambah Pesanan</a>
         </div>
     </div>
 </div>

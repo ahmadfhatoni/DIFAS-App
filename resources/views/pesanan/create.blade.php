@@ -53,7 +53,7 @@
                         </select>
                     </div>
                     <div class="mb-2">
-                        <label>Harga</label>
+                        <label>Harga Sewa Rp.</label>
                         <input type="text" id="harga" class="form-control" readonly>
                     </div>
                     <div class="mb-2">
@@ -95,28 +95,32 @@
                         
                         <input type="hidden" name="detail_pesanan" id="detail_pesanan">
 
-                        <table class="table table-bordered mt-3">
-                            <thead>
-                                <tr>
-                                    <th>ID Barang</th>
-                                    <th>Nama Barang</th>
-                                    <th>Jumlah</th>                                        
-                                    <th>Harga Sewa</th>
-                                    <th>Subtotal</th>
-                                    <th>Hapus</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tabel-detail"></tbody>
-                        </table>
-
-                        <div class="d-flex justify-content-between mt-2">
-                            <div>Jumlah Item: <span id="total-jumlah">0</span></div>
-                            <div>Total Harga: <span id="total-harga">0</span></div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped text-center align-middle bg-white mt-3">
+                                <thead class="table-primary" style="position: sticky; top: 0;">
+                                    <tr>
+                                        <th>ID Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Jumlah</th>                                        
+                                        <th>Harga Sewa</th>
+                                        <th>Subtotal</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabel-detail">
+                                    <!-- Data akan diisi melalui JavaScript -->
+                                </tbody>
+                            </table>
                         </div>
 
-                        <div class="text-center mt-3">
-                            <button type="submit" class="btn btn-primary fw-semibold">Simpan</button>
-                            <button type="reset" class="btn btn-secondary fw-semibold">Batalkan</button>                           
+                        <div class="d-flex justify-content-between mt-3">
+                            <div class="fw-semibold">Jumlah Item: <span id="total-jumlah" class="text-theme-blue">0</span></div>
+                            <div class="fw-semibold">Total Harga: <span id="total-harga" class="text-theme-blue">Rp. 0</span></div>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-3">
+                            <button type="submit" class="btn btn-primary fw-semibold me-2">Simpan</button>
+                            <button type="reset" class="btn btn-secondary fw-semibold">Batalkan</button>
                         </div>
                     </form>
                 </div>
@@ -207,14 +211,14 @@
                     <td><input type="hidden" name="id_barang[]" value="${item.id}">${item.id}</td>
                     <td>${item.nama}</td>
                     <td>${item.jumlah}</td>
-                    <td>${item.harga}</td>
-                    <td>${item.subtotal}</td>
-                    <td><button type="button" class="btn btn-danger btn-sm" onclick="hapusBarang(${index})">Hapus</button></td>
+                    <td>Rp. ${item.harga.toLocaleString('id-ID')}</td>
+                    <td>Rp. ${item.subtotal.toLocaleString('id-ID')}</td>
+                    <td><button type="button" class="btn btn-danger btn-sm fw-semibold" onclick="hapusBarang(${index})">Hapus</button></td>
                 </tr>
             `;
         });
 
-        document.getElementById('total-harga').innerText = total;
+        document.getElementById('total-harga').innerText = `Rp. ${total.toLocaleString('id-ID')}`;
         document.getElementById('total-jumlah').innerText = detailList.length;
         document.getElementById('detail_pesanan').value = JSON.stringify(detailList);
     }

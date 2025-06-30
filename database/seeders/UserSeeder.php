@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -18,9 +20,9 @@ class UserSeeder extends Seeder
 
         // Owner
         User::create([
-            'name' => 'Owner Satu',
-            'email' => 'owner@example.com',
-            'password' => Hash::make('password'),
+            'name' => 'Owner DIFAS',
+            'email' => 'difashomeindustry@gmail.com',
+            'password' => Hash::make('OwnerDIFAS'),
             'role' => 'owner',
         ]);
     }

@@ -4,7 +4,9 @@
 
 @section('content')
 <div class="main-wrapper justify-content-center">
-
+    <div class="text-center mb-4">
+        <h4 class="fw-bold m-0" style="color: #3066BE;">DASHBOARD DIFAS APP</h4>
+    </div>
     {{-- Kartu Statistik --}}
     <div class="row text-white mb-4">
         <div class="col-sm-12 col-md-4 mb-3">
@@ -35,11 +37,9 @@
             </div>
         </div>
     </div>
-
     {{-- Pesanan 7 Hari ke Depan --}}
     <div class="bg-primary p-4 rounded shadow mb-4">
         <h6 class="fw-semibold mb-3">Pesanan 7 Hari ke Depan</h6>
-
         @if ($upcomingPesanan->isEmpty())
             <p class="text-mute text-white">Tidak ada pesanan dalam 7 hari ke depan.</p>
         @else
@@ -73,8 +73,6 @@
             </div>
         @endif
     </div>
-
-
     {{-- Chart Row --}}
     <div class="row mb-4">
         <div class="col-sm-12 col-md-6 mb-3">
@@ -94,7 +92,6 @@
             </div>
         </div>
     </div>
-
     {{-- Chart Penyewaan --}}
     <div class="bg-primary p-4 rounded shadow text-white mb-3">
         <h6>Data Penyewaan</h6>
@@ -102,7 +99,6 @@
             <canvas id="penyewaanChart"></canvas>
         </div>
     </div>
-
 </div>
 @endsection
 

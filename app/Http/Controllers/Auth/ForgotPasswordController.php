@@ -5,16 +5,21 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Support\Facades\Password;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+/**
+ * Forgot Password Controller
+ * 
+ * Handles password reset email functionality
+ */
 class ForgotPasswordController extends Controller
 {
     use SendsPasswordResetEmails;
 
     /**
-     * Kirim link reset password ke email.
-     * Hanya email admin yang diizinkan.
+     * Send password reset link to email.
+     * Only admin emails are allowed.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
@@ -23,17 +28,21 @@ class ForgotPasswordController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
+        ], [
+            'email.required' => 'Email harus diisi.',
+            'email.email' => 'Format email tidak valid.',
         ]);
 
-        // Cek apakah email ada di tabel users
+        // Check if email exists in users table
         $emailExists = DB::table('users')->where('email', $request->email)->exists();
 
-        if (! $emailExists) {
+        if (!$emailExists) {
             return back()->withErrors([
                 'email' => 'Email tidak terdaftar di sistem.',
             ]);
         }
-        // Kirim link reset password
+
+        // Send password reset link
         $response = Password::sendResetLink(
             $request->only('email')
         );

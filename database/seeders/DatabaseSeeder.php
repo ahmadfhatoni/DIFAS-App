@@ -3,15 +3,14 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class RoleSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('roles')->insert([
-            ['nama' => 'owner'],
-            ['nama' => 'admin'],
+        $this->call([
+            KategoriSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
